@@ -1,0 +1,27 @@
+{
+  "name": "auto-major",
+  "version": "1.0.0",
+  "description": "A discord bot made for a server full of band kids. What could go wrong?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyborgRyno603YT/Auto-Major-Discord-Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CyborgRyno603YT/Auto-Major-Discord-Bot/issues"
+  },
+  "homepage": "https://github.com/CyborgRyno603YT/Auto-Major-Discord-Bot#readme",
+  "dependencies": {
+    "@discordjs/rest": "^1.0.1",
+    "discord.js": "^14.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.20.0"
+  }
+}
