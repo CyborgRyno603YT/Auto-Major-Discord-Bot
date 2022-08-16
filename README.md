@@ -4,3 +4,4 @@
  Auto Major is a bot designed for a server full of band kids (as the name is a pun on Drum Major and Automated Process)
 Since I'm learning how to use Discord.JS and JavaScript in general, 90% of the code is borrowed from this site: https://discordjs.guide/
 All credit goes to the site when due.
+I use GitPod to code on my Chromebook as it won't let me download Microsoft Visual Studio Code, credit to them for letting me code anywhere.
