@@ -1,6 +1,7 @@
 // Initial start up code
 const fs = require('node:fs');
 const path = require('node:path');
+const blackjack = require('discord-blackjack');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 const { token } = require('./config.json');
 
