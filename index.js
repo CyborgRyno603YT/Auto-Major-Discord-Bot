@@ -1,7 +1,7 @@
 // Initial start up code
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, GatewayIntentBits } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, ActivityType } = require('discord.js');
 const { token } = require('./config.json');
 
 // Starts a new client
@@ -19,9 +19,13 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 
+//Logs when the bot is ready to recieve commands and sets the status.
 client.once('ready', () => {
 	console.log('Ready!');
-});
+    client.user.setPresence({
+		activities: [{name: 'my maker devolve into madness', type: ActivityType.Watching}],
+		status:'online',
+})});
 
 // This defines what to do when the bot recieves a command
 client.on('interactionCreate', async interaction => {
