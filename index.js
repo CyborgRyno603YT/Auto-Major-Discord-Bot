@@ -1,18 +1,18 @@
-// Initial start up code
+//Initial start up code
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, ActivityType } = require('discord.js');
 const { token } = require('./config.json');
 
-// Starts a new client
+//Starts a new client
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-// Defines where to find the commands and what file to run for each slash command
+//Defines where to find the commands and what file to run for each slash command
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
-// This code runs once at the start of the program and prints 'Ready' to the console when the bot is ready to recieve commands
+//I'm not 100% sure, but it's something with saying where the commands are I think?
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
@@ -27,7 +27,7 @@ client.once('ready', () => {
 		status:'online',
 })});
 
-// This defines what to do when the bot recieves a command
+//Tells the bot to execute the command it revieves and says if there's an error
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
@@ -43,5 +43,5 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-// Login to Discord with the bot token
+//Login to Discord with the bot token
 client.login(token);
