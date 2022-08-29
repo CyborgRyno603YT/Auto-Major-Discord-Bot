@@ -1,7 +1,7 @@
 //Initial start up code
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, Collection, GatewayIntentBits, ActivityType } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, ActivityType, PermissionsBitField } = require('discord.js');
 const { token } = require('./config.json');
 
 //Starts a new client
