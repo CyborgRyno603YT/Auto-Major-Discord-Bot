@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, PermissionsBitField } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,10 +11,13 @@ module.exports = {
 		if (amount < 1 || amount > 99) {
 			return interaction.reply({ content: 'You need to input a number between 1 and 99.', ephemeral: true });
 		}
-		await interaction.channel.bulkDelete(amount, true).catch(error => {
-			console.error(error);
-			interaction.reply({ content: 'There was an error trying to prune messages in this channel!', ephemeral: true });
-		});
+		if (interaction.member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
+			await interaction.channel.bulkDelete(amount, true).catch(error => {
+				console.error(error);
+				interaction.reply({ content: 'There was an error trying to prune messages in this channel!', ephemeral: true});
+			return interaction.reply({ content: 'You need the \'Manage Messages\' permission to use that command.', ephemeral: true });
+		})
+		};
 
 		return interaction.reply({ content: `Successfully pruned \`${amount}\` messages.`, ephemeral: true });
 	},

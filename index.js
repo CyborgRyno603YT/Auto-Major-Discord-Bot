@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, ActivityType, PermissionsBitField } = require('discord.js');
 const { token } = require('./config.json');
+//I added PermissionsBitField because I'm trying to figure out how to make /prune only work if you have the manage messages permission
 
 //Starts a new client
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
