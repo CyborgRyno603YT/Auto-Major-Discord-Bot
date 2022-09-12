@@ -35,7 +35,11 @@ client.on('interactionCreate', async interaction => {
 	const command = client.commands.get(interaction.commandName);
 
 	if (!command) return;
-
+	if (commandName === 'prune') {
+		if (!interaction.channel.permissionsFor(client.user).has(PermissionsBitField.Flags.ManageMessages, true)) {
+			try {
+			 await command.execute(interaction);
+		}}}
 	try {
 		await command.execute(interaction);
 	} catch (error) {
